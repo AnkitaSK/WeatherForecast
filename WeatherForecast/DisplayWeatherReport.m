@@ -42,6 +42,7 @@
                                       self.weatherDetail = [[WeatherDetail alloc] initWithDictionary:json error:nil];
                                       [self.tempDetails addObjectsFromArray:self.weatherDetail.lists];
                                       self.tableView.userInteractionEnabled = YES;
+                                      [self.navigationItem setHidesBackButton:NO];
                                       [self.tableView reloadData];
                                   }];
 }
@@ -54,6 +55,7 @@
 -(void) viewWillAppear:(BOOL)animated
 {
     self.navigationItem.title = self.cityName;
+    [self.navigationItem setHidesBackButton:YES];
     self.tableView.userInteractionEnabled = NO;
     self.tempDetails = [[NSMutableArray alloc] init];
     [self fetchWeatherDetails];
