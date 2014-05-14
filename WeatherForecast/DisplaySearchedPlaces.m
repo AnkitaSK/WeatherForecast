@@ -244,6 +244,7 @@
     [geoCoder reverseGeocodeLocation:newLocation completionHandler:^(NSArray *placemarks, NSError *error) {
         for (CLPlacemark * placemark in placemarks) {
             self.currentCityName = ([placemarks count] > 0) ? [[placemarks objectAtIndex:0] locality] : @"Not Found";
+            NSLog(@"self.currentCityName %@",self.currentCityName);
             [self.indicator stopAnimating];
             self.tableView.userInteractionEnabled = YES;
             self.weatherDetailItem.enabled = YES;
